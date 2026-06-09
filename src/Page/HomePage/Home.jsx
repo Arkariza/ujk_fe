@@ -21,7 +21,6 @@ export default function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem("token")
         const res = await axios.get(`${API_CRUD}/get`, {
         })
         setItems(res.data?.data ?? [])
