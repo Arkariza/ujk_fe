@@ -23,9 +23,6 @@ export default function HomePage() {
       try {
         const token = localStorage.getItem("token")
         const res = await axios.get(`${API_CRUD}/get`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
         })
         setItems(res.data?.data ?? [])
       } catch (err) {
