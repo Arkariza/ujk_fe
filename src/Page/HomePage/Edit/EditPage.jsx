@@ -7,9 +7,9 @@ import { API_CRUD } from "../../../Services/baseUrl"
 export default function EditPage() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const [loading, setLoading]   = useState(false)
+  const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
-  const [success, setSuccess]   = useState(false)
+  const [success, setSuccess] = useState(false)
   const [form, setForm] = useState({
     nm_siswa: "",
     alamat_siswa: "",
@@ -23,13 +23,13 @@ export default function EditPage() {
       .get(`${API_CRUD}/get/${id}`)
       .then((res) => {
         const payload = res.data?.data ?? res.data
-        const record  = Array.isArray(payload) ? payload[0] : payload
+        const record = Array.isArray(payload) ? payload[0] : payload
         if (record && typeof record === "object") {
           setForm({
-            nm_siswa:     record.nm_siswa     || "",
+            nm_siswa: record.nm_siswa || "",
             alamat_siswa: record.alamat_siswa || "",
-            tgl_lahir:    record.tgl_lahir    || "",
-            jurusan:      record.jurusan      || "",
+            tgl_lahir: record.tgl_lahir || "",
+            jurusan: record.jurusan || "",
           })
         }
       })

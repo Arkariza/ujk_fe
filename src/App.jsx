@@ -10,9 +10,9 @@ export default function App() {
     <>
       <div>
         <Routes>
-          <Route path="/home-page" element={<HomePage/>}/>
-          <Route path="/create-page" element={<CreatePage/>}/>
-          <Route path="/edit-page/:id" element={<EditPage/>}/>
+          <Route path="/home-page" element={<HomePage />} />
+          <Route path="/create-page" element={<CreatePage />} />
+          <Route path="/edit-page/:id" element={<EditPage />} />
         </Routes>
       </div>
     </>

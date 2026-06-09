@@ -7,12 +7,12 @@ import { API_CRUD } from "../../../Services/baseUrl"
 export default function CreatePage() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-  const [error, setError]     = useState("")
+  const [error, setError] = useState("")
   const [form, setForm] = useState({
-    nm_siswa:     "",
+    nm_siswa: "",
     alamat_siswa: "",
-    tgl_lahir:    "",
-    jurusan:      "",
+    tgl_lahir: "",
+    jurusan: "",
   })
 
   const handleChange = (e) =>

@@ -12,9 +12,9 @@ function formatDate(dateStr) {
 }
 
 export default function HomePage() {
-  const [items, setItems]     = useState([])
+  const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError]     = useState(null)
+  const [error, setError] = useState(null)
   const navigate = useNavigate()
 
   useEffect(() => {
