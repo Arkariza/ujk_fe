@@ -15,14 +15,12 @@ export default function HomePage() {
   const [items, setItems]     = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError]     = useState(null)
-  const [search, setSearch]   = useState("")
   const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${API_CRUD}/get`, {
-        })
+        const res = await axios.get(`${API_CRUD}/get`)
         setItems(res.data?.data ?? [])
       } catch (err) {
         setError(err.message || "Error")
@@ -42,7 +40,6 @@ export default function HomePage() {
       setError(err.message || "Error")
     }
   }
-  const filtered = items
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -103,7 +100,7 @@ export default function HomePage() {
           </button>
         </div>
         <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden">
-          {filtered.length === 0 ? (
+          {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-gray-400 gap-3">
               <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -127,7 +124,7 @@ export default function HomePage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
-                  {filtered.map((item) => {
+                  {items.map((item) => {
 
                     return (
                       <tr
@@ -184,9 +181,9 @@ export default function HomePage() {
               </table>
             </div>
           )}
-          {filtered.length > 0 && (
+          {items.length > 0 && (
             <div className="px-5 py-3 border-t border-gray-100 text-xs text-gray-400">
-              Menampilkan {filtered.length} dari {items.length} siswa
+              Menampilkan {items.length} dari {items.length} siswa
             </div>
           )}
         </div>
